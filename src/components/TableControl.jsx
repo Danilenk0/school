@@ -19,7 +19,7 @@ export default function TableControl({
   data,
   headerKeyMap,
   searchString,
-  setSearchString
+  setSearchString,
 }) {
   const handleExportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(data, {
@@ -143,7 +143,7 @@ export default function TableControl({
     <div className="w-3/4 m-auto mt-6 mb-2 flex align-baseline justify-between duration-200">
       <div className="flex align-baseline gap-4">
         <Link
-          to={addPath+'add'}
+          to={addPath + "add"}
           className="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-200 transform"
         >
           Добавить <i className="bx bx-plus ml-2"></i>
@@ -158,7 +158,9 @@ export default function TableControl({
         >
           <button
             onClick={handleOpenModal}
-            className="flex items-center justify-center bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-200 transform"
+            className={`flex items-center justify-center bg-rose-600 hover:bg-rose-700 text-white font-semibold ${
+              selectedIdStudents.length > 1 ? "opacity-0 " : "opacity-100 "
+            } py-2 px-4 rounded-lg shadow-md transition-all duration-200 transform`}
           >
             Удалить <i className="bx bx-minus ml-2"></i>
           </button>
@@ -200,9 +202,7 @@ export default function TableControl({
           placeholder="Поиск..."
           onChange={(e) => setSearchString(e.target.value)}
           className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
-            data.length < 2 
-              ? "opacity-0"
-              : "opacity-100"
+            data.length < 2 ? "opacity-0" : "opacity-100"
           }`}
         />
       </div>

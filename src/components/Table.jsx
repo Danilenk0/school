@@ -75,7 +75,7 @@ export default function Table({
             <tr
               key={item.id}
               className={`bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-100 duration-200 ${
-                selectedId.includes(item.id) ? "bg-slate-100" : ""
+                selectedId.includes(item.id) ? "bg-slate-200" : ""
               }`}
               onClick={() => handleRowClick(item.id)}
             >
